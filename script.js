@@ -21,7 +21,12 @@ clear.addEventListener("click", ()=>{
 
 calculate.addEventListener("click", ()=>{
     try {
-        display.value = eval(display.value);
+        const result = eval(display.value);
+        if (result === Infinity || result === -Infinity || isNaN(result)) {
+            display.value = "Error";
+        } else {
+            display.value = result;
+        }
     } catch (error) {
         display.value = "Error";
     }
@@ -54,3 +59,4 @@ cos.addEventListener("click", ()=>{
         display.value = "Error"
     }
 });
+
